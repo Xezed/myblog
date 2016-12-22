@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="col-sm-6 offset-sm-3">
+        <div class="row">
+            {{ post.title }}
+        </div>
+        <div class="row">
+            <img src="{{ post.image.url }}" class="img-fluid">
+        </div>
+        <div class="row">
+            {{ post.content }}
+        </div>
+        <div class="row">
+            {{ post.user }}
+        </div>
+        <div class="row">
+            {{ post.time_created }}
+        </div>
+    </div>
+{% endblock %}

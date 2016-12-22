@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    You're welcome!
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="col-sm-6 offset-sm-3">
+            <div class="row">
+                {{ post.title }}
+            </div>
+            <div class="row">
+                <img src="{{ post.image.url }}" class="img-fluid">
+            </div>
+            <div class="row">
+                {{ post.content }}
+            </div>
+            <div class="row">
+                {{ post.user }}
+            </div>
+            <div class="row">
+                {{ post.time_created }}
+            </div>
+            <div class="row">
+                <a class="btn btn-primary" href="{{ post.get_absolute_url }}" role="button">Link</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
