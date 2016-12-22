@@ -1,3 +1,4 @@
 /env
 /blog/staticfiles/media/*
 /.idea
+blog/db.sqlite3

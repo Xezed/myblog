@@ -8,8 +8,17 @@ from .models import Post
 
 class PostList(ListView):
     model = Post
-    context_object_name = 'posts'
     template_name = 'home.html'
+    ordering = '-time_created'
+
+    def get_queryset(self):
+        qs = self.model.objects.all()
+        q = self.request.GET.get('q')
+        if q:
+            qs = qs.filter(title__icontains=q)
+        qs = qs.order_by(self.get_ordering())
+        return qs
+
 
 
 class DeleteList(DeleteView):
@@ -24,5 +33,10 @@ class CreateList(CreateView):
 
 class PostDetail(DetailView):
     model = Post
-    context_object_name = 'post'
     template_name = 'post/detail.html'
+
+
+class PostUpdate(UpdateView):
+    model = Post
+    template_name = 'post/detail.html'
+    fields = ('title', 'content', 'image', 'slug')
