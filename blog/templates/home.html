@@ -7,9 +7,9 @@
     {% for post in post_list %}
         {% include 'post/_post.html' %}
         <div class="row">
-            <a class="btn btn-primary" href="{{ post.get_absolute_url }}" role="button">Подробнее</a>
+            <a class="btn btn-primary" href="{{ post.get_absolute_url }}#disqus_thread" role="button">Подробнее</a>
         </div>
-        </div>
+        </div> {# closed div from include #}
     {% endfor %}
 {% endblock %}
 

@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.PostList.as_view(), name='home'),
     url(r'^post/', include('post.urls', namespace='post')),
+    url(r'^forum/', include('pybb.urls', namespace='pybb')),
 ]
 
 
