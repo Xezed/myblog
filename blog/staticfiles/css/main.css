@@ -5,3 +5,8 @@ nav a {
 .bg-faded {
     background-color: #000000;
 }
+
+body > nav > ul > li.nav-item.active > a {
+    color: #32ffc4 !important;
+    border-bottom: .1rem solid #32ffc4;
+}

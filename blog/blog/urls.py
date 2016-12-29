@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^$', views.PostList.as_view(), name='home'),
     url(r'^post/', include('post.urls', namespace='post')),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 

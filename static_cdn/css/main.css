@@ -1,0 +1,11 @@
+nav a {
+    color: #5cb85c !important;
+}
+
+.bg-faded {
+    background-color: #000000;
+}
+
+.active {
+    color: #993333 !important;
+}

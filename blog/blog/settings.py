@@ -30,10 +30,15 @@ INSTALLED_APPS = [
     'post',
 
     # third-part
-    'pybb',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'bbcode',
-    'pytz',
+    'crispy_forms',
     'disqus',
+    'django_activeurl',
+    'pybb',
+    'pytz',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +70,15 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
@@ -102,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -121,3 +135,5 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn")
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 SITE_ID = 1
+LOGIN_URL = '/accounts/login/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
