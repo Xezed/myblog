@@ -47,5 +47,5 @@ class PostDetail(DetailView):
 
 class PostUpdate(UpdateView):
     model = Post
-    template_name = 'post/detail.html'
+    template_name = 'post/create.html'
     fields = ('title', 'content', 'image')
