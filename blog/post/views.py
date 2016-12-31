@@ -24,6 +24,7 @@ class PostList(ListView):
 
 class DeleteList(DeleteView):
     model = Post
+    success_url = '/'
 
 
 class CreateList(CreateView):
@@ -38,6 +39,10 @@ class CreateList(CreateView):
             instanse.user = request.user
             instanse.save()
             return HttpResponseRedirect(instanse.get_absolute_url())
+        context = {
+            "form": form,
+        }
+        return render(request, "post/create.html", context)
 
 
 class PostDetail(DetailView):
