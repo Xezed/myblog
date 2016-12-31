@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
@@ -27,8 +28,16 @@ class DeleteList(DeleteView):
 
 class CreateList(CreateView):
     model = Post
-    fields = ('title', 'content', 'image', 'slug')
+    fields = ('title', 'content', 'image')
     template_name = 'post/create.html'
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            instanse = form.save(commit=False)
+            instanse.user = request.user
+            instanse.save()
+            return HttpResponseRedirect(instanse.get_absolute_url())
 
 
 class PostDetail(DetailView):
@@ -39,4 +48,4 @@ class PostDetail(DetailView):
 class PostUpdate(UpdateView):
     model = Post
     template_name = 'post/detail.html'
-    fields = ('title', 'content', 'image', 'slug')
+    fields = ('title', 'content', 'image')
