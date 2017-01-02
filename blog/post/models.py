@@ -7,7 +7,7 @@ from django.utils.text import slugify
 
 def upload_location(instance, filename):
     PostModel = instance.__class__
-    new_id = Post.objects.order_by('id')
+    new_id = PostModel.objects.order_by('id')
     if new_id:
         new_id = new_id.last().id + 1
     else:

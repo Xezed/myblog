@@ -12,6 +12,8 @@ class PostList(ListView):
     template_name = 'home.html'
     ordering = '-time_created'
 
+    paginate_by = 2
+
     def get_queryset(self):
         qs = self.model.objects.all()
         q = self.request.GET.get('q')
