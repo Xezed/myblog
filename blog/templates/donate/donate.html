@@ -3,7 +3,7 @@
 
 {% block scripts %}
 <script type="text/javascript">
-    Stripe.setPublishableKey('{{ public_key }}');
+    Stripe.setPublishableKey('pk_test_jfL39BPDGhFLJhDika6MqHe9');
     function stripeResponseHandler(status, response) {
       // Grab the form:
       var $form = $('#payment-form');
@@ -47,6 +47,7 @@ $(function() {
 </script>
 
 {% block content %}
+    <p>{{ publick_ket }}</p>
     <div class="col-sm-4 offset-sm-4">
         <form action="" method="POST" id="payment-form">{% csrf_token %}
             <span class="payment-errors"></span>

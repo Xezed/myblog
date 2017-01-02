@@ -10,3 +10,21 @@ body > nav > ul > li.nav-item.active > a {
     color: #32ffc4 !important;
     border-bottom: .1rem solid #32ffc4;
 }
+
+.main-block {
+  background-color: whiteSmoke;
+  margin-bottom: 30px;
+  padding: 20px 30px;
+  border-radius: 5px;
+  border-color: #999999;
+  -webkit-box-shadow: 1px 1px 3px #cccccc;
+  box-shadow: 1px 1px 3px #cccccc;
+}
+.main-block h1 {
+  font-size: 24px;
+}
+
+.breadcrumb {
+    background-color: whiteSmoke;
+}
+

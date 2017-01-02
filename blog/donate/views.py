@@ -12,13 +12,14 @@ class Donate(TemplateView):
 
     def post(self, request, *args, **kwargs):
         # Get the credit card details submitted by the form
+        print(request.POST)
         token = request.POST['stripeToken']
 
         #Create a charge: this will charge the user's card
         try:
             charge = stripe.Charge.create(
-                amount=1000,  # Amount in cents
-                currency="usd",
+                amount=5000,  # Amount in cents
+                currency="rub",
                 source=token,
                 description="Example charge"
             )
