@@ -9,7 +9,21 @@
         <div class="row">
             <a class="btn btn-primary" href="{{ post.get_absolute_url }}#disqus_thread" role="button">Подробнее</a>
         </div>
+        {% if forloop.last %}
+            <div class="cal-sm-3 offset-sm-4">
+            {% if paginator.num_pages > 1 %}
+                {% if page_obj.has_previous %}
+                    <a href="{% if page_obj.previous_page_number == 1 %}/{% else %}/{{ page_obj.previous_page_number }}/{% endif %}">&larr;</a>
+                {% endif %}
+                Страница {{ page_obj.number }} из {{ paginator.num_pages }}
+                {% if page_obj.has_next %}
+                    <a href="/{{ page_obj.next_page_number }}/">&rarr;</a>
+                {% endif %}
+            {% endif %}
+            </div>
+        {% endif %}
         </div> {# closed div from include #}
     {% endfor %}
+
 {% endblock %}
 

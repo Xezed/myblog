@@ -28,17 +28,18 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # my apps
     'post',
+    'donate',
 
     # third-part
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'bbcode',
     'crispy_forms',
     'disqus',
     'django_activeurl',
     'pybb',
     'pytz',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,7 @@ MEDIA_URL = '/media/'
 SITE_ID = 1
 LOGIN_URL = '/accounts/login/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# stripe
+TEST_SECRET_KEY = 'sk_test_pbLwKam2G2rpoJMJgZawro8p'
+TEST_PUBLISHABLE_KEY = 'pk_test_jfL39BPDGhFLJhDika6MqHe9'
