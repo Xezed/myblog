@@ -2,7 +2,7 @@
 /blog/staticfiles/media/*
 /.idea
 *.sqlite3
-static_cdn/
+/static_cdn
 
 
 # Byte-compiled / optimized / DLL files
